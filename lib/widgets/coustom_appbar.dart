@@ -6,19 +6,19 @@ class CoustomAppBar extends StatelessWidget {
 
   final double scrollOffset;
 
-  Widget buildCategories(BuildContext context, String text, Function onTap) {
-    return GestureDetector(
-      onTap: onTap(),
-      child: Text(
-        text,
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 16.0,
-          fontWeight: FontWeight.w600,
-        ),
-      ),
-    );
-  }
+  // Widget buildCategories(BuildContext context, String text, Function onTap) {
+  //   return GestureDetector(
+  //     onTap: onTap(),
+  //     child: Text(
+  //       text,
+  //       style: const TextStyle(
+  //         color: Colors.white,
+  //         fontSize: 16.0,
+  //         fontWeight: FontWeight.w600,
+  //       ),
+  //     ),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class CoustomAppBar extends StatelessWidget {
           children: [
             Image.asset(
               Assets.netflixLogo0,
-              height: 40,
+              height: 30,
             ),
             Expanded(
               child: Row(

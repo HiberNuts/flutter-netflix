@@ -139,7 +139,26 @@ class bodyScreen extends StatelessWidget {
             ),
           ),
         ),
-        const dynamicList(),
+        const dynamicList(
+          key: PageStorageKey('posters'),
+          type: "posters",
+          text: "BingeWorthy",
+        ),
+        const dynamicList(
+          key: PageStorageKey('popular'),
+          type: "popular",
+          text: "Popular on netflix",
+        ),
+        const dynamicList(
+          key: PageStorageKey('originals'),
+          type: "originals",
+          text: "Netflix Originals",
+        ),
+        const dynamicList(
+          key: PageStorageKey('animated'),
+          type: "animated",
+          text: "Animated series",
+        ),
       ],
     );
   }

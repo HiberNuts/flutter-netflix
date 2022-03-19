@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix/screens/home_screen.dart';
+import 'package:netflix/widgets/Video.dart';
 
 class Detail extends StatefulWidget {
   const Detail({Key? key, required this.info}) : super(key: key);
@@ -113,7 +114,15 @@ class _DetailState extends State<Detail> {
                       ),
                       // ignore: deprecated_member_use
                       child: FlatButton.icon(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const VideoPlayer(
+                                      videoData: "https://youtu.be/1d0Zf9sXlHk",
+                                    )),
+                          );
+                        },
                         icon: const Icon(
                           Icons.play_arrow,
                           color: Colors.black,

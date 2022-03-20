@@ -115,11 +115,12 @@ class _DetailState extends State<Detail> {
                       // ignore: deprecated_member_use
                       child: FlatButton.icon(
                         onPressed: () {
-                          Navigator.pushReplacement(
+                          Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => const VideoPlayer(
-                                      videoData: "https://youtu.be/1d0Zf9sXlHk",
+                                      videoData:
+                                          "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
                                     )),
                           );
                         },

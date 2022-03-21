@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -38,8 +40,7 @@ class SearchScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 8.0),
-        child: Container(
-            child: Column(
+        child: Column(
           children: [
             const Padding(
               padding: EdgeInsets.all(8.0),
@@ -72,34 +73,29 @@ class SearchScreen extends StatelessWidget {
                         padding: const EdgeInsets.all(8.0),
                         child: GestureDetector(
                           onTap: () {},
-                          child: Container(
-                            child: Padding(
-                              padding: const EdgeInsets.all(2.0),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  SizedBox(
-                                    height: 130,
-                                    width: 180,
-                                    child: Image.network(
-                                        documents[index]['image'],
-                                        alignment: Alignment.center,
-                                        fit: BoxFit.cover),
-                                  ),
-                                  Container(
-                                    child: Text(
-                                      documents[index]['name'],
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 18.0),
-                                    ),
-                                  ),
-                                  Icon(
-                                    Icons.play_arrow,
-                                    color: Colors.grey,
-                                  )
-                                ],
-                              ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(2.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                SizedBox(
+                                  height: 130,
+                                  width: 180,
+                                  child: Image.network(
+                                      documents[index]['image'],
+                                      alignment: Alignment.center,
+                                      fit: BoxFit.cover),
+                                ),
+                                Text(
+                                  documents[index]['name'],
+                                  style: const TextStyle(
+                                      color: Colors.white, fontSize: 18.0),
+                                ),
+                                const Icon(
+                                  Icons.play_arrow,
+                                  color: Colors.grey,
+                                )
+                              ],
                             ),
                           ),
                         ),
@@ -110,7 +106,7 @@ class SearchScreen extends StatelessWidget {
               ),
             )
           ],
-        )),
+        ),
       ),
     );
   }

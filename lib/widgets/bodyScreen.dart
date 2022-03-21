@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, camel_case_types, unused_local_variable
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -14,25 +16,32 @@ class bodyScreen extends StatefulWidget {
 }
 
 class _bodyScreenState extends State<bodyScreen> {
+  List<String> imageList = [];
+  @override
+  void initState() {
+    super.initState();
+    List<String> imageList = [];
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    List<String> imageList = [];
-
     getData() async {
       final firestore = FirebaseFirestore.instance;
       var snapshot = await firestore.collection("carousel").doc("images").get();
       List<String> imageListTemp = [];
       final documents = snapshot.data();
       final data = documents?["image"];
-      print(data);
 
       for (var value in data) {
         imageListTemp.add(value);
       }
       setState(() {
         imageList = imageListTemp;
-        print(imageList.length);
-        print(imageList);
       });
     }
 

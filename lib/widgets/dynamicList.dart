@@ -1,3 +1,6 @@
+// ignore: duplicate_ignore
+// ignore_for_file: file_names, camel_case_types
+
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:netflix/screens/Detail.dart';
@@ -16,7 +19,6 @@ class dynamicList extends StatefulWidget {
   State<dynamicList> createState() => _dynamicListState();
 }
 
-// ignore: camel_case_types
 class _dynamicListState extends State<dynamicList> {
   Future getData() async {
     final firestore = FirebaseFirestore.instance;

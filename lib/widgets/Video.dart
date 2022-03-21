@@ -1,8 +1,11 @@
+// ignore_for_file: file_names
+
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
-import 'package:netflix/screens/Detail.dart';
+
 import 'package:video_player/video_player.dart';
 
+// ignore: must_be_immutable
 class Video extends StatefulWidget {
   VideoPlayerController videoPlayerController;
 
@@ -76,6 +79,7 @@ class _VideoState extends State<Video> {
 
 class VideoPlayer extends StatefulWidget {
   const VideoPlayer({Key? key, required this.videoData}) : super(key: key);
+  // ignore: prefer_typing_uninitialized_variables
   final videoData;
 
   @override

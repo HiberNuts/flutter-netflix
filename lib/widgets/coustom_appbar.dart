@@ -6,20 +6,6 @@ class CoustomAppBar extends StatelessWidget {
 
   final double scrollOffset;
 
-  // Widget buildCategories(BuildContext context, String text, Function onTap) {
-  //   return GestureDetector(
-  //     onTap: onTap(),
-  //     child: Text(
-  //       text,
-  //       style: const TextStyle(
-  //         color: Colors.white,
-  //         fontSize: 16.0,
-  //         fontWeight: FontWeight.w600,
-  //       ),
-  //     ),
-  //   );
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,15 +27,15 @@ class CoustomAppBar extends StatelessWidget {
                 children: [
                   _AppBarButton(
                     title: 'TV Shows',
-                    onTap: () => print('TV Shows'),
+                    onTap: () {},
                   ),
                   _AppBarButton(
                     title: 'Movies',
-                    onTap: () => print('TV Shows'),
+                    onTap: () {},
                   ),
                   _AppBarButton(
                     title: 'My List',
-                    onTap: () => print('TV Shows'),
+                    onTap: () {},
                   ),
                   // buildCategories(context, 'Tv Shows', () {}),
                   // buildCategories(context, 'Movies', () {}),

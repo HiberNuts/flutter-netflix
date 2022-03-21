@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -25,17 +27,19 @@ class _DetailState extends State<Detail> {
   var randomYear = 2012;
 
   random() {
-    var rng = Random();
-    int max = 99;
-    int min = 80;
-    randomNumber = min + rng.nextInt(max - min);
-    randomNumber.toString();
+    setState(() {
+      var rng = Random();
+      int max = 99;
+      int min = 80;
+      randomNumber = min + rng.nextInt(max - min);
+      randomNumber.toString();
 
-    var year = Random();
-    int maxx = 2022;
-    int minn = 2010;
-    randomYear = minn + rng.nextInt(maxx - minn);
-    randomYear.toString();
+      var year = Random();
+      int maxx = 2022;
+      int minn = 2010;
+      randomYear = minn + year.nextInt(maxx - minn);
+      randomYear.toString();
+    });
   }
 
   @override

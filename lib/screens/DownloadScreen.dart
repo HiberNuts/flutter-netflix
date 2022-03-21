@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 class DownloadScreen extends StatefulWidget {
@@ -11,7 +13,7 @@ class _DownloadScreenState extends State<DownloadScreen> {
   var conditionOn = "On";
 
   condition() {
-    print("raghav");
+    
     if (conditionOn == 'On') {
       setState(() {
         conditionOn = "Off";
@@ -50,34 +52,32 @@ class _DownloadScreenState extends State<DownloadScreen> {
           ),
         ]),
       ),
-      body: Container(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              const Icon(
-                // Icons.download_for_offline_outlined,
-                Icons.download_for_offline_sharp,
-                size: 250,
-                color: Colors.grey,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            const Icon(
+              // Icons.download_for_offline_outlined,
+              Icons.download_for_offline_sharp,
+              size: 250,
+              color: Colors.grey,
+            ),
+            const Text(
+              "Movies and Tv shows that you \n download appear here!",
+              style: TextStyle(color: Colors.white, fontSize: 19.0),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(5),
               ),
-              const Text(
-                "Movies and Tv shows that you \n download appear here!",
-                style: TextStyle(color: Colors.white, fontSize: 19.0),
+              child: MaterialButton(
+                onPressed: () {},
+                child:const Text("Find Something to download",
+                    style: TextStyle(fontSize: 19.0)),
               ),
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: MaterialButton(
-                  onPressed: () {},
-                  child: Text("Find Something to download",
-                      style: TextStyle(fontSize: 19.0)),
-                ),
-              )
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );

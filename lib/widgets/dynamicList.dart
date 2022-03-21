@@ -25,7 +25,7 @@ class _dynamicListState extends State<dynamicList> {
   }
 
   routeToDetails(DocumentSnapshot info) {
-    Navigator.pushReplacement(
+    Navigator.push(
         context, MaterialPageRoute(builder: (context) => Detail(info: info)));
   }
 

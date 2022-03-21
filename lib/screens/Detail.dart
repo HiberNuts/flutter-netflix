@@ -121,6 +121,7 @@ class _DetailState extends State<Detail> {
                                 builder: (context) => const VideoPlayer(
                                       videoData:
                                           "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+                                      // "https://v.traileraddict.com/127213.mp4",
                                     )),
                           );
                         },

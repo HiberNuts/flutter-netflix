@@ -1,30 +1,122 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import 'dynamicList.dart';
 
-class bodyScreen extends StatelessWidget {
+class bodyScreen extends StatefulWidget {
   const bodyScreen({
     Key? key,
-    required ScrollController scrollController,
-  })  : _scrollController = scrollController,
-        super(key: key);
-
-  final ScrollController _scrollController;
+  }) : super(key: key);
 
   @override
+  State<bodyScreen> createState() => _bodyScreenState();
+}
+
+class _bodyScreenState extends State<bodyScreen> {
+  @override
   Widget build(BuildContext context) {
+    List<String> imageList = [];
+
+    getData() async {
+      final firestore = FirebaseFirestore.instance;
+      var snapshot = await firestore.collection("carousel").doc("images").get();
+      List<String> imageListTemp = [];
+      final documents = snapshot.data();
+      final data = documents?["image"];
+      print(data);
+
+      for (var value in data) {
+        imageListTemp.add(value);
+      }
+      setState(() {
+        imageList = imageListTemp;
+        print(imageList.length);
+        print(imageList);
+      });
+    }
+
+    getData();
+
     return CustomScrollView(
-      controller: _scrollController,
       slivers: [
         SliverToBoxAdapter(
           child: Stack(
             alignment: Alignment.bottomCenter,
             children: [
-              SizedBox(
-                height: 300.0,
-                width: double.infinity,
-                child: Image.network(
-                    "https://wallpaperaccess.com/full/790323.jpg"),
+              CarouselSlider(
+                items: [
+                  //1st Image of Slider
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.0),
+                      image: const DecorationImage(
+                        image: NetworkImage(
+                            "https://wallpaperaccess.com/full/2052703.jpg"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+
+                  //2nd Image of Slider
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.0),
+                      image: const DecorationImage(
+                        image: NetworkImage(
+                            "https://wallpaperaccess.com/full/3640117.jpg"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+
+                  //3rd Image of Slider
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.0),
+                      image: const DecorationImage(
+                        image: NetworkImage(
+                            "https://wallpaperaccess.com/full/2052703.jpg"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+
+                  //4th Image of Slider
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(6.0),
+                      image: const DecorationImage(
+                        image: NetworkImage(
+                            "https://c4.wallpaperflare.com/wallpaper/622/739/588/stranger-things-netflix-clouds-bicycle-wallpaper-preview.jpg"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+
+                  //5th Image of Slider
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.0),
+                      image: const DecorationImage(
+                        image: NetworkImage(
+                            "https://wallpaperaccess.com/full/2387027.jpg"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ],
+
+                //Slider Container properties
+                options: CarouselOptions(
+                  height: 250.0,
+                  enlargeCenterPage: true,
+                  autoPlay: true,
+                  aspectRatio: 16 / 9,
+                  enableInfiniteScroll: true,
+                  autoPlayAnimationDuration: const Duration(milliseconds: 1500),
+                  disableCenter: true,
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:netflix/screens/DownloadScreen.dart';
+import 'package:netflix/screens/MoreScreen.dart';
 import 'package:netflix/widgets/coustom_appbar.dart';
 
 import '../widgets/bodyScreen.dart';
+import 'SearchScreen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -13,6 +16,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   ScrollController _scrollController = ScrollController();
   double _scrollOffset = 0.0;
+  PageController pageController = PageController();
 
   @override
   void initState() {
@@ -36,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {
       selected_index = index;
     });
-    // pagecontroller.jumpToPage(pageValue);
+    pageController.jumpToPage(selected_index);
   }
 
   Future getData() async {}
@@ -47,51 +51,63 @@ class _HomeScreenState extends State<HomeScreen> {
 
     final Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: PreferredSize(
-        preferredSize: Size(screenSize.width, 70.0),
-        child: const CoustomAppBar(),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.black,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.grey,
-        currentIndex: selected_index,
-        onTap: onTap,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home_outlined,
-              size: 30,
+        appBar: PreferredSize(
+          preferredSize: Size(screenSize.width, 70.0),
+          child: const CoustomAppBar(),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: Colors.black,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.grey,
+          currentIndex: selected_index,
+          onTap: onTap,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home_outlined,
+                size: 30,
+              ),
+              label: '',
             ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.search_outlined,
-              size: 30,
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.search_outlined,
+                size: 30,
+              ),
+              label: '',
             ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.download_outlined,
-              size: 30,
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.download_outlined,
+                size: 30,
+              ),
+              label: '',
             ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.menu_outlined,
-              size: 30,
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.menu_outlined,
+                size: 30,
+              ),
+              label: '',
             ),
-            label: '',
-          ),
-        ],
-      ),
-      body: bodyScreen(scrollController: _scrollController),
-    );
+          ],
+        ),
+        body: PageView(
+          controller: pageController,
+          children: [
+            bodyScreen(),
+            const SearchScreen(),
+            const DownloadScreen(),
+            const MoreScreen(),
+          ],
+          onPageChanged: (value) {
+            setState(() {
+              selected_index = value;
+            });
+          },
+        ));
   }
 }
 

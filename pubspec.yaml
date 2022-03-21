@@ -37,7 +37,7 @@ dependencies:
   firebase_core: ^1.13.1
   video_player: ^2.0.1
   chewie: ^1.0.1
-  
+  carousel_slider: ^4.0.0
 
 dev_dependencies:
   flutter_test:

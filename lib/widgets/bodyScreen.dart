@@ -44,7 +44,7 @@ class _bodyScreenState extends State<bodyScreen> {
         imageList = imageListTemp;
       });
     }
-
+//geting data
     getData();
 
     return CustomScrollView(

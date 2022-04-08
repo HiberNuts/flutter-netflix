@@ -17,16 +17,6 @@ class bodyScreen extends StatefulWidget {
 
 class _bodyScreenState extends State<bodyScreen> {
   List<String> imageList = [];
-  @override
-  void initState() {
-    super.initState();
-    List<String> imageList = [];
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,10 +30,11 @@ class _bodyScreenState extends State<bodyScreen> {
       for (var value in data) {
         imageListTemp.add(value);
       }
-      setState(() {
+      if (imageListTemp.isNotEmpty) {
         imageList = imageListTemp;
-      });
+      }
     }
+
 //geting data
     getData();
 

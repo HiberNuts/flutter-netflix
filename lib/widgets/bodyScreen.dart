@@ -94,7 +94,6 @@ class _bodyScreenState extends State<bodyScreen> {
                     ),
                   ),
 
-
                   //5th Image of Slider
                   Container(
                     decoration: BoxDecoration(
